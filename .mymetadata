@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="YBaseDeamon"
+  id="myeclipse.1366955633343"
+  context-root="/YBaseDeamon"
+  j2ee-spec="5.0"
+  archive="YBaseDeamon.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

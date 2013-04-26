@@ -1,0 +1,43 @@
+<?xml version="1.0"  encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ybase.stock.domain">
+	<class name="Stock" table="CM_STOCK">
+		<id name="id" column="ID" type="integer">
+			<generator class="native" />
+		</id>
+		<property name="stockName" column="STOCK_NAME" type="string" length="500" />
+		<property name="todayOpen" column="TODAY_OPEN" type="float" precision="10" scale="2" />
+		<property name="yesterdayClose" column="YESTERDAY_CLOSE" type="float" precision="10" scale="2" />
+		<property name="spotPrice" column="SPOT_PRICE" type="float" precision="10" scale="2" />
+		<property name="dayHighPrice" column="DAY_HIGH_PRICE" type="float" precision="10" scale="2" />
+		<property name="dayLowPrice" column="DAY_LOW_PRICE" type="float" precision="10" scale="2" />
+		<property name="buyPrice" column="BUY_PRICE" type="float" precision="10" scale="2" />
+		<property name="racePrice" column="RACE_PRICE" type="float" precision="10" scale="2" />
+		<property name="shareTraceNum" column="SHARE_TRACE_NUM" type="long" length="10" />
+		<property name="shareTraceAmount" column="SHARE_TRACE_AMOUNT" type="long" length="10" />
+		<property name="firstBuyerApplyFor" column="FIRST_BUYER_APPLY_FOR" type="long" length="10" />
+		<property name="firstBuyerQuote" column="FIRST_BUYER_QUOTE" type="float" precision="10" scale="2" />
+		<property name="secondBuyerApplyFor" column="SECOND_BUYER_APPLY_FOR" type="long" length="10" />
+		<property name="secondBuyerQuote" column="SECOND_BUYER_QUOTE" type="float" precision="10" scale="2" />
+		<property name="thirdBuyerApplyFor" column="THIRD_BUYER_APPLY_FOR" type="long" length="10" />
+		<property name="thirdBuyerQuote" column="THIRD_BUYER_QUOTE" type="float" precision="10" scale="2" />
+		<property name="fourthBuyerApplyFor" column="FOURTH_BUYER_APPLY_FOR" type="long" length="10" />
+		<property name="fourthBuyerQuote" column="FOURTH_BUYER_QUOTE" type="float" precision="10" scale="2" />
+		<property name="fivethBuyerApplyFor" column="FIVETH_BUYER_APPLY_FOR" type="long" length="10" />
+		<property name="fivethBuyerQuote" column="FIVETH_BUYER_QUOTE" type="float" precision="10" scale="2" />
+		<property name="firstRacerApplyFor" column="FIRST_RACER_APPLY_FOR" type="long" length="10" />
+		<property name="firstRacerQuote" column="FIRST_RACER_QUOTE" type="float" precision="10" scale="2" />
+		<property name="secondRacerApplyFor" column="SECOND_RACER_APPLY_FOR" type="long" length="10" />
+		<property name="secondRacerQuote" column="SECOND_RACER_QUOTE" type="float" precision="10" scale="2" />
+		<property name="thirdRacerApplyFor" column="THIRD_RACER_APPLY_FOR" type="long" length="10" />
+		<property name="thirdRacerQuote" column="THIRD_RACER_QUOTE" type="float" precision="10" scale="2" />
+		<property name="fourthRacerApplyFor" column="FOURTH_RACER_APPLY_FOR" type="long" length="10" />
+		<property name="fourthRacerQuote" column="FOURTH_RACER_QUOTE" type="float" precision="10" scale="2" />
+		<property name="fivethRacerApplyFor" column="FIVETH_RACER_APPLY_FOR" type="long" length="10" />
+		<property name="fivethRacerQuote" column="FIVETH_RACER_QUOTE" type="float" precision="10" scale="2" />
+		<property name="date_" column="DATE_" type="string" length="20" />
+		<property name="time_" column="TIME_" type="string" length="20" />
+		<property name="memo" column="MEMO" type="string" length="50" />
+	</class>
+</hibernate-mapping>

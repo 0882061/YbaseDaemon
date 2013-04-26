@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true" />
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="namingStrategy">
+			<bean class="org.hibernate.cfg.DefaultNamingStrategy" />
+		</property>
+		<property name="dataSource" ref="dataSource" />
+		<property name="lobHandler" ref="lobHandler" />
+		<property name="hibernateProperties" ref="hibernateProperties" />
+
+		<property name="mappingResources">
+			<list>
+				<value>com/ybase/stock/domain/Stock.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="baseTxProxy" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="find*">PROPAGATION_SUPPORTS,ISOLATION_READ_COMMITTED,readOnly</prop>
+				<prop key="query*">PROPAGATION_SUPPORTS,ISOLATION_READ_COMMITTED,readOnly</prop>
+				<prop key="get*">PROPAGATION_SUPPORTS,ISOLATION_READ_COMMITTED,readOnly</prop>
+				<prop key="has*">PROPAGATION_SUPPORTS,ISOLATION_READ_COMMITTED,readOnly</prop>
+				<prop key="is*">PROPAGATION_SUPPORTS,ISOLATION_READ_COMMITTED,readOnly</prop>
+				<prop key="hasCancelPermission*">PROPAGATION_SUPPORTS,ISOLATION_READ_COMMITTED,readOnly</prop>
+				<prop key="canBeRestarted*">PROPAGATION_SUPPORTS,ISOLATION_READ_COMMITTED,readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

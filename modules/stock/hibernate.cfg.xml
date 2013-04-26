@@ -1,0 +1,17 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory name="test">
+		<property name="show_sql">true</property>
+		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="connection.url">
+			jdbc:sqlserver://localhost:1433;DatabaseName=stocksample;SelectMethod=cursor
+		</property>
+		<property name="connection.username">csm</property>
+		<property name="connection.password">password</property>
+		<property name="connection.pool_size">1</property>
+		<property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+	</session-factory>
+</hibernate-configuration>
